@@ -300,3 +300,28 @@ window.addEventListener('resize', function () {
         letters[i].fireworkDy = letters[i].y - hh;
     }
 });
+const sparklesContainer = document.getElementById('sparkles');
+
+function createSparkles() {
+    const sparklesContainer = document.getElementById('sparkles');
+    for (let i = 0; i < 100; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.top = `${Math.random() * 100}%`;
+        sparkle.style.animationDelay = `${Math.random() * 2}s`;
+        sparklesContainer.appendChild(sparkle);
+    }
+
+    // Adding sparkles outside the container
+    for (let i = 0; i < 200; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.top = `${Math.random() * 100}%`;
+        sparkle.style.animationDelay = `${Math.random() * 2}s`;
+        document.body.appendChild(sparkle);
+    }
+}
+
+createSparkles();
