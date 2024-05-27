@@ -1,3 +1,4 @@
+/* Existing styles */
 canvas {
     position: absolute;
     top: 0;
@@ -24,6 +25,7 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    overflow: visible; /* Allow overflow for sparkles */
 }
 
 #note {
@@ -32,7 +34,37 @@ body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 20px;
     color: #000000;  /* Dark text color */
-    line-height: 1.5;
+    line-height: 1.9;
     /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  Subtle shadow */
+}
 
+/* Sparkles styles */
+#sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none; 
+}
+
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #fff, transparent);
+    opacity: 0;
+    animation: sparkle-animation 2s infinite;
+}
+
+@keyframes sparkle-animation {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
