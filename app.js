@@ -4,7 +4,7 @@ var w = c.width = window.innerWidth,
     hw = w / 2,
     hh = h / 2,
     opts = {
-        strings: ['HAPPY', 'BIRTHDAY', 'Sakshi'],
+        strings: ['HAPPY', 'BIRTHDAY', 'Priya'],
         charSize: 30,
         charSpacing: 35,
         lineHeight: 40,
@@ -279,7 +279,11 @@ function anim() {
 function showNote() {
     var noteContainer = document.getElementById('note-container');
     noteContainer.style.display = 'block';
+
+    var mediaContainer = document.getElementById('media-container');
+    mediaContainer.style.display = 'flex'; // Make the media container visible
 }
+
 
 anim();
 
@@ -300,28 +304,3 @@ window.addEventListener('resize', function () {
         letters[i].fireworkDy = letters[i].y - hh;
     }
 });
-const sparklesContainer = document.getElementById('sparkles');
-
-function createSparkles() {
-    const sparklesContainer = document.getElementById('sparkles');
-    for (let i = 0; i < 100; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.style.left = `${Math.random() * 100}%`;
-        sparkle.style.top = `${Math.random() * 100}%`;
-        sparkle.style.animationDelay = `${Math.random() * 2}s`;
-        sparklesContainer.appendChild(sparkle);
-    }
-
-    // Adding sparkles outside the container
-    for (let i = 0; i < 200; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.style.left = `${Math.random() * 100}%`;
-        sparkle.style.top = `${Math.random() * 100}%`;
-        sparkle.style.animationDelay = `${Math.random() * 2}s`;
-        document.body.appendChild(sparkle);
-    }
-}
-
-createSparkles();
