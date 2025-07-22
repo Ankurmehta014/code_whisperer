@@ -390,6 +390,103 @@ header input[type="text"]:focus {
   box-shadow: 0 2px 8px rgba(249, 139, 28, 0.13);
 }
 
+/* --- Glassmorphism and Glow Effects --- */
+.music-player, .music-card {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px) saturate(120%);
+  border: 1.5px solid rgba(249,139,28,0.18);
+  box-shadow: 0 8px 32px 0 rgba(249,139,28,0.18), 0 0 0 2px #fffbe6 inset;
+}
+.music-player {
+  box-shadow: 0 8px 32px 0 rgba(249,139,28,0.18), 0 0 16px 2px #feb47b;
+  border: 2px solid rgba(249,139,28,0.22);
+}
+.music-card:hover {
+  box-shadow: 0 12px 48px 0 rgba(249,139,28,0.28), 0 0 0 2px #fffbe6 inset, 0 0 16px 2px #feb47b;
+  border: 2px solid #f98b1c;
+}
+
+/* --- Animated Gradient Border for Player --- */
+.music-player {
+  position: relative;
+  overflow: hidden;
+}
+.music-player::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  z-index: 0;
+  border-radius: 28px;
+  background: linear-gradient(270deg, #f98b1c, #feb47b, #f3f4f6, #f98b1c);
+  background-size: 600% 600%;
+  animation: gradientMove 8s ease-in-out infinite;
+  filter: blur(8px) brightness(1.2);
+  opacity: 0.5;
+}
+.music-player > * {
+  position: relative;
+  z-index: 1;
+}
+@keyframes gradientMove {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+
+/* --- Soft Glow on Buttons --- */
+.player-controls button, .login-content button {
+  box-shadow: 0 0 8px 0 #feb47b, 0 2px 8px rgba(249,139,28,0.08);
+}
+.player-controls button:active {
+  box-shadow: 0 0 16px 2px #f98b1c, 0 2px 8px rgba(249,139,28,0.18);
+  transform: scale(0.97);
+}
+
+/* --- Micro-interactions for Cards --- */
+.music-card {
+  transition: box-shadow 0.2s, transform 0.2s, border 0.2s, background 0.2s;
+}
+.music-card:active {
+  transform: scale(0.98) rotate(-1deg);
+  background: rgba(255,255,255,0.92);
+}
+
+/* --- Dark Mode Support --- */
+.dark-mode body, .dark-mode html {
+  background: linear-gradient(120deg, #232526 0%, #414345 100%) !important;
+  color: #fbeee6 !important;
+}
+.dark-mode .div1, .dark-mode .sidebar, .dark-mode .div2, .dark-mode .div3, .dark-mode .div4, .dark-mode .div5, .dark-mode .div6 {
+  background: rgba(30,32,34,0.92) !important;
+  color: #fbeee6 !important;
+  box-shadow: 0 2px 16px rgba(249,139,28,0.13);
+}
+.dark-mode .music-player, .dark-mode .music-card {
+  background: rgba(40,42,44,0.85) !important;
+  border: 1.5px solid rgba(249,139,28,0.28) !important;
+  color: #fbeee6 !important;
+}
+.dark-mode .music-card:hover {
+  background: rgba(60,62,64,0.95) !important;
+  border: 2px solid #feb47b !important;
+}
+.dark-mode .player-controls button, .dark-mode .login-content button {
+  background: linear-gradient(135deg, #232526 0%, #feb47b 100%) !important;
+  color: #fffbeee6 !important;
+  box-shadow: 0 0 8px 0 #f98b1c, 0 2px 8px rgba(249,139,28,0.18);
+}
+.dark-mode .player-controls button:hover, .dark-mode .login-content button:hover {
+  background: linear-gradient(135deg, #feb47b 0%, #232526 100%) !important;
+}
+.dark-mode .user-profile, .dark-mode header input[type="text"] {
+  background: #232526 !important;
+  color: #fbeee6 !important;
+  border: 1.5px solid #feb47b !important;
+}
+.dark-mode .music-section h2 {
+  color: #feb47b !important;
+}
+
 @media (max-width: 1024px) {
   .music-player {
     width: 60%;
