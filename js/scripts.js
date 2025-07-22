@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   musicCards.forEach((card) => {
     card.addEventListener("click", () => {
       const newImageSrc = card.querySelector("img").src;
-      const newAudioSrc = card.getAttribute("data-audio");
+      const newAudioSrc = "../assets/audio/" + card.getAttribute("data-audio");
 
       // Update the playing image
       playingImage.src = newImageSrc;
