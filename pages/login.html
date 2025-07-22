@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    
+    <div class="login-container">
+       
+        <div class="login-content">
+            <div class="logo">
+                <img src="../assets/images/Logo.png" alt="HeartBeatz Logo">
+            </div>
+            <h1>Welcome Back!</h1>
+            <form id="login-form">
+                <label for="mobile-number">Enter your Mobile Number</label>
+                <input type="text" id="mobile-number" name="mobile-number" placeholder="123-456-7890" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form submission
+            const mobileNumber = document.getElementById('mobile-number').value;
+            
+            // Simple validation for 10-digit mobile number
+            if (/^\d{10}$/.test(mobileNumber)) {
+                window.location.href = 'index.html';
+            } else {
+                alert('Please enter a valid 10-digit mobile number.');
+            }
+        });
+    </script>
+</body>
+</html>
