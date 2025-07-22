@@ -1,4 +1,14 @@
-/* Login Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@400;700&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Arial', sans-serif;
+    background: linear-gradient(120deg, #f3f4f6 0%, #fbeee6 100%);
+    transition: background 0.5s;
+}
+
 .login-container {
     position: relative;
     width: 100%;
@@ -6,28 +16,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f3f4f6;
+    background: transparent;
     overflow: hidden;
 }
 
 .login-content {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 3rem;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(249, 139, 28, 0.13);
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    transition: box-shadow 0.3s;
+}
+.login-content:hover {
+    box-shadow: 0 16px 48px rgba(249, 139, 28, 0.18);
 }
 
 .login-content .logo img {
-    width: 400px;
+    width: 320px;
     margin-bottom: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(249, 139, 28, 0.08);
 }
 
 .login-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
     color: #f98b1c;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
 }
 
 .login-content form {
@@ -37,9 +55,10 @@
 }
 
 .login-content label {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
     color: #333;
+    font-weight: 600;
 }
 
 .login-content input[type="text"] {
@@ -48,23 +67,33 @@
     margin-bottom: 1.5rem;
     width: 100%;
     max-width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1.5px solid #f98b1c;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(249, 139, 28, 0.04);
+    transition: border 0.2s, box-shadow 0.2s;
+}
+.login-content input[type="text"]:focus {
+    border: 2px solid #feb47b;
+    outline: none;
+    box-shadow: 0 4px 16px rgba(249, 139, 28, 0.13);
 }
 
 .login-content button {
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 2.5rem;
     font-size: 1.2rem;
     color: #fff;
-    background-color: #f98b1c;
+    background: linear-gradient(90deg, #f98b1c 0%, #feb47b 100%);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(249, 139, 28, 0.08);
+    transition: background 0.3s, transform 0.2s;
 }
-
 .login-content button:hover {
-    background-color: #e07a1b;
+    background: linear-gradient(90deg, #feb47b 0%, #f98b1c 100%);
+    transform: scale(1.05);
 }
 
 @keyframes fadeIn {
